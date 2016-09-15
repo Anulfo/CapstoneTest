@@ -4,6 +4,16 @@ app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi) {
 
 $scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 12};
 
+$scope.marker = {
+    id: "first",
+  coords: {
+    latitude: 36.1627,
+    longitude: -86.7816
+  }
+};
+
+console.log($scope.marker);
+
 $scope.polylines = [];
 
 uiGmapGoogleMapApi .then(function(){
