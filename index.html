@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tell Me Your Story</title>
+
+ <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+ </head>
+<body ng-app="MapApp">
+  <div class="row">
+    <div class="col-xs-12" ng-view></div>
+  </div>
+
+
+
+
+<!-- Libraries -->
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+<script src='lib/bower_components/lodash/dist/lodash.min.js'></script>
+<script src='lib/bower_components/angular/angular.min.js'></script>
+<script src='lib/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+<script src='lib/bower_components/angular-route/angular-route.min.js'></script>
+<script src='lib/bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+<script src='lib/bower_components/jquery/dist/jquery.min.js'></script>
+<script src='lib/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+<!-- Providers -->
+<script src='app/app.js'></script>
+
+<script src='app/ctrls/MapViewCtrl.js'></script>
+
+</body>
+</html>
