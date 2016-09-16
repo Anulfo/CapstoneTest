@@ -1,0 +1,11 @@
+<h1>Map View Partial</h1>
+
+<ui-gmap-google-map class="angular-google-map-container" center='map.center' zoom='map.zoom'>
+
+<ui-gmap-polyline ng-repeat="p in polylines" path ="p.path" stroke="p.stroke" visible="p.visible" geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
+
+<ui-gmap-marker coords= "map.center" idkey= "marker.id"></ui-gmap-marker>
+
+</ui-gmap-google-map>
+
+<button type="" ng-click="goToCaracas()">Let's go Home Pal</button>
