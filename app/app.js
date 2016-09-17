@@ -4,6 +4,7 @@ var app = angular.module("MapApp", ["ngRoute", "uiGmapgoogle-maps"]);
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if (AuthFactory.isAuthenticated()) {
+    console.log("Identified User, Proceed")
     resolve();
   }else {
     console.log("Not a Valid User");
