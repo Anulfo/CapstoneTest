@@ -1,8 +1,7 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, searchTermData, $location) {
+app.controller("NavBarCtrl", function($scope, $location) {
 
-  $scope.searchText = searchTermData;
   $scope.navItems = [
 
       {url: "#/logout", name: "Logout", showState: "$parent.isLoggedIn"},
@@ -10,4 +9,4 @@ app.controller("NavCtrl", function($scope, searchTermData, $location) {
 
   $scope.isActive = (viewLocation) => viewLocation === $location.path();
 
-})
+});

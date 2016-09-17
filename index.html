@@ -13,7 +13,7 @@
 <body class="container" ng-app="MapApp">
 
 <div class="row" ng-controller="TopCtrl">
-<!-- Here is where TopCtrl.js become parent to NavCtrl.js -->
+<!-- Here is where TopCtrl.js become parent to NavBarCtrl.js -->
     <div class="col-xs-12" ng-include="'partials/navbar.html'"></div>
     <div class="col-xs-12" ng-view></div>
 
@@ -37,8 +37,10 @@
 <script src='app/app.js'></script>
 <script src='app/values/fb-creds.js'></script>
 
-<script src='app/ctrls/MapViewCtrl.js'></script>
 <script src='app/ctrls/LoginViewCtrl.js'></script>
+<script src='app/ctrls/TopCtrl.js'></script>
+<script src='app/ctrls/NavBarCtrl.js'></script>
+<script src='app/ctrls/MapViewCtrl.js'></script>
 <script src='app/factories/AuthFactory.js'></script>
 
 </body>
