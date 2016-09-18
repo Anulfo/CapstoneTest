@@ -26,7 +26,7 @@ $scope.login = () => {
     AuthFactory.loginUser($scope.account)
     .then ((data) => {
       if (data) {
-        $window.location.href = "#/storyView";
+        $window.location.href = "#/main";
       } else {
         $window.location.href = "#/login";
       }
