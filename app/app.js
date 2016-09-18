@@ -27,6 +27,10 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           templateUrl: 'partials/login-view.html',
           controller: 'LoginViewCtrl'
         }).
+        when('/main', {
+          templateUrl: 'partials/mainView',
+          controller: 'MainViewCtrl'
+        }).
         when('/storyView', {
           templateUrl: 'partials/map-view.html',
           controller: 'MapViewCtrl'
