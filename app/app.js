@@ -35,13 +35,17 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           templateUrl: 'partials/map-view.html',
           controller: 'MapViewCtrl'
         }).
-        when('/main/buildView', {
-          templateUrl: 'partials/build-view.html',
-          controller: 'BuildViewCtrl'
-        }).
-        when('/main/rearrangeSnippets', {
+        when('/main/build/rearrangeAndEditSnippets', {
           templateUrl: 'partials/rearrange-snippets-view.html',
           controller: 'RearrangeSnippetsCtrl'
+        }).
+        when('/main/build/name', {
+          templateUrl: 'partials/story-name-view.html',
+          controller: 'StoryNameViewCtrl'
+        }).
+        when('/main/build/newSnippet/:storyId', {
+          templateUrl: 'partials/build-view.html',
+          controller: 'BuildViewCtrl'
         }).
         otherwise('/');
   });

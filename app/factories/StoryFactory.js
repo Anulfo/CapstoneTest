@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
 
@@ -12,6 +12,20 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
           .error( (error) => {
             reject(error);
           });
+      });
+    };
+
+    let postNewStoryName = (newStoryName) =>{
+
+      return $q ( (resolve, reject) => {
+        $http.post(`${FirebaseURL}/stories.json`, JSON.stringify(newStoryName))
+        .success( (ObjFromFirebase) => {
+          console.log(ObjFromFirebase);
+          resolve(ObjFromFirebase);
+        }).
+        error( (error) => {
+          reject(error);
+        });
       });
     };
 
@@ -36,6 +50,6 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
-    return {postNewSnippet, getStorySnippetsByUid};
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName};
 
 });

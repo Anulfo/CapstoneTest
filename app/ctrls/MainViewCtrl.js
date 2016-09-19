@@ -4,7 +4,7 @@ app.controller("MainViewCtrl", function($scope, $window) {
 
   $scope.goToBuildingForm =  () =>  {
     console.log("Been Clicked");
-    $window.location.href="#/main/buildView";
+    $window.location.href="#/main/build/name";
   };
 
   $scope.goToStoryGallery = () => {

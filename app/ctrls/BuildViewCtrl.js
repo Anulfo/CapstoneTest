@@ -1,12 +1,13 @@
 "use strict";
 
-app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window) {
+app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams) {
+  console.log($routeParams.storyId);
 
     $scope.newStorySnippet = {
       city: "",
       description: "",
       imgLink: "",
-      storyName: "",
+      storyId: $routeParams.storyId,
       userName:"",
       uid: $scope.$parent.getUser()
     };
@@ -17,6 +18,6 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
     };
 
     $scope.goToRearrangeSnippetsView = function () {
-        $window.location.href="#/main/rearrangeSnippets";
+        $window.location.href="#/main/build/rearrangeAndEditSnippets";
     };
 });
