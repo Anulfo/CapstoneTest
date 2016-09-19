@@ -12,10 +12,8 @@ app.controller("StoryNameViewCtrl", function ($scope, StoryFactory, $window) {
     StoryFactory.postNewStoryName($scope.newStoryName)
     .then(function (result) {
       let fbKey;
-      for (var key in result) {
-        console.log(result[key]);
-        fbKey = result[key];
-      }
+        console.log(result.name);
+        fbKey = result.name;
       $scope.newStoryName.storyId = result ;
       $window.location.href = `#/main/build/newSnippet/${fbKey}`;
     });
