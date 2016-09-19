@@ -17,6 +17,6 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
     };
 
     $scope.goToRearrangeSnippetsView = function () {
-        $windows.location.href="#/main/rearrangeSnippets";
+        $window.location.href="#/main/rearrangeSnippets";
     };
 });
