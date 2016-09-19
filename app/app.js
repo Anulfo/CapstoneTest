@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("MapApp", ["ngRoute", "uiGmapgoogle-maps"]);
+var app = angular.module("MapApp", ["ngRoute", "uiGmapgoogle-maps"]).constant("FirebaseURL", "https://capstone-tester.firebaseio.com");
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if (AuthFactory.isAuthenticated()) {
@@ -28,12 +28,20 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           controller: 'LoginViewCtrl'
         }).
         when('/main', {
-          templateUrl: 'partials/mainView',
+          templateUrl: 'partials/mainView.html',
           controller: 'MainViewCtrl'
         }).
         when('/storyView', {
           templateUrl: 'partials/map-view.html',
           controller: 'MapViewCtrl'
+        }).
+        when('/main/buildView', {
+          templateUrl: 'partials/build-view.html',
+          controller: 'BuildViewCtrl'
+        }).
+        when('/main/rearrangeSnippets', {
+          templateUrl: 'partials/rearrange-snippets-view.html',
+          controller: 'RearrangeSnippetsCtrl'
         }).
         otherwise('/');
   });

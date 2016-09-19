@@ -1,0 +1,41 @@
+"use strict";
+
+app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
+
+    let postNewSnippet = (newSnippet) => {
+
+      return $q( (resolve, reject) => {
+        $http.post(`${FirebaseURL}/snippets.json`, JSON.stringify(newSnippet))
+          .success( (ObjFromFirebase) => {
+            resolve(ObjFromFirebase);
+          })
+          .error( (error) => {
+            reject(error);
+          });
+      });
+    };
+
+    let getStorySnippetsByUid = (user) => {
+      let snippets = [];
+      return $q((resolve, reject) => {
+        $http.get(`${FirebaseURL}/snippets.json?orderBy="uid"&equalTo="${user}"`)
+        .success((snippet) => {
+          if (snippet !== null) {
+            Object.keys(snippet).forEach((key) => {
+              snippet[key].id = key;
+              snippets.push(snippet[key]);
+            });
+            resolve(snippets);
+          }else {
+            resolve(snippets);
+          }
+        }).
+        error( (error) => {
+          reject(error);
+        });
+      });
+    };
+
+    return {postNewSnippet, getStorySnippetsByUid};
+
+});
