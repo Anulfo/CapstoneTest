@@ -11,4 +11,15 @@ app.controller("RearrangeSnippetsCtrl", function($scope, $window, $location, Sto
     console.log("Snippets Array", $scope.snippets);
     });
 
+  $scope.deleteSnippet = (snippetId) => {
+    StoryFactory.deleteSnippetById(snippetId)
+    .then( (response) => {
+      StoryFactory.getStorySnippetsByUid(user)
+      .then((snippetsArray) => {
+        $scope.snippets = snippetsArray;
+    });
+  });
+
+  };
+
 });

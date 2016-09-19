@@ -7,6 +7,9 @@
       <div class="col-xs-6">
         <p>{{snippet.city}}</p>
         <p>{{snippet.description}}</p>
+        <p>{{snippet.id}}</p>
+        <button type="button" class="btn btn-primary" ng-click="deleteSnippet(snippet.id)">Delete</button>
+        <button type="button" class="btn btn-primary" ng-click="updateSnippet()">Edit</button>
       </div>
     </div>
   </div>

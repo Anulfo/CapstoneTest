@@ -30,6 +30,7 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
     };
 
     let getStorySnippetsByUid = (user) => {
+
       let snippets = [];
       return $q((resolve, reject) => {
         $http.get(`${FirebaseURL}/snippets.json?orderBy="uid"&equalTo="${user}"`)
@@ -50,6 +51,16 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
-    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName};
+    let deleteSnippetById = (snippetId) => {
+      return $q( (resolve, reject) => {
+        $http.delete(`${FirebaseURL}/snippets/${snippetId}.json`)
+        .success( (ObjFromFirebase) => {
+          resolve(ObjFromFirebase);
+          console.log(ObjFromFirebase);
+        });
+      });
+    };
+
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById};
 
 });

@@ -8,8 +8,8 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
       description: "",
       imgLink: "",
       storyId: $routeParams.storyId,
-      userName:"",
-      uid: $scope.$parent.getUser()
+      uid: $scope.$parent.getUser(),
+      id:""
     };
 
     $scope.addNewSnippet = function () {
