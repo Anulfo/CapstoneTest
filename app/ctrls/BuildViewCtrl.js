@@ -7,7 +7,7 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
       city: "",
       description: "",
       imgLink: "",
-      storyId: $routeParams.storyId,
+      linkToStory: $routeParams.storyId,
       uid: $scope.$parent.getUser(),
       id:""
     };
@@ -18,6 +18,6 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
     };
 
     $scope.goToRearrangeSnippetsView = function () {
-        $window.location.href="#/main/build/rearrangeAndEditSnippets";
+        $window.location.href= `#/main/build/rearrangeAndEditSnippets/${$routeParams.storyId}`;
     };
 });

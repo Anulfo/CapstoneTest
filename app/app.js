@@ -35,7 +35,7 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           templateUrl: 'partials/map-view.html',
           controller: 'MapViewCtrl'
         }).
-        when('/main/build/rearrangeAndEditSnippets', {
+        when('/main/build/rearrangeAndEditSnippets/:storyId', {
           templateUrl: 'partials/rearrange-snippets-view.html',
           controller: 'RearrangeSnippetsCtrl'
         }).
@@ -46,6 +46,10 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
         when('/main/build/newSnippet/:storyId', {
           templateUrl: 'partials/build-view.html',
           controller: 'BuildViewCtrl'
+        }).
+        when ('/main/storyGallery', {
+          templateUrl: 'partials/stories-view.html',
+          controller: 'StoriesViewCtrl'
         }).
         otherwise('/');
   });
