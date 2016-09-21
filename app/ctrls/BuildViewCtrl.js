@@ -1,14 +1,17 @@
 "use strict";
 
-app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window) {
+app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams) {
+  console.log($routeParams);
+
+    $scope.title = "Create New Snippet";
 
     $scope.newStorySnippet = {
       city: "",
       description: "",
       imgLink: "",
-      storyName: "",
-      userName:"",
-      uid: $scope.$parent.getUser()
+      linkToStory: $routeParams.storyId,
+      uid: $scope.$parent.getUser(),
+      id:""
     };
 
     $scope.addNewSnippet = function () {
@@ -17,6 +20,6 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
     };
 
     $scope.goToRearrangeSnippetsView = function () {
-        $window.location.href="#/main/rearrangeSnippets";
+        $window.location.href= `#/main/build/rearrangeAndEditSnippets/${$routeParams.storyId}`;
     };
 });

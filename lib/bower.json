@@ -22,6 +22,7 @@
     "firebase": "^3.2.0",
     "jquery": "^3.1.0",
     "angular-local-storage": "^0.2.7",
-    "angular-google-maps": "^2.3.4"
+    "angular-google-maps": "^2.3.4",
+    "angular-drag-and-drop-lists": "^1.4.0"
   }
 }
