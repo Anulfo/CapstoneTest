@@ -25,5 +25,5 @@ app.controller("RearrangeSnippetsCtrl", function($scope, StoryFactory, $routePar
 
   $scope.updateSnippet = (snippetId) => {
     $window.location.href = `#/main/build/editSnippet/${snippetId}`;
-  }
+  };
 });
