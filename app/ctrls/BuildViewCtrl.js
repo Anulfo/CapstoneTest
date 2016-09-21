@@ -1,7 +1,9 @@
 "use strict";
 
 app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams) {
-  console.log($routeParams.storyId);
+  console.log($routeParams);
+
+    $scope.title = "Create New Snippet";
 
     $scope.newStorySnippet = {
       city: "",

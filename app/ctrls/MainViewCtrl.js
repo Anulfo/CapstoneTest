@@ -11,5 +11,4 @@ app.controller("MainViewCtrl", function($scope, $window) {
     console.log("Go to Story Clicked");
     $window.location.href="#/main/storyGallery";
   };
-
 });

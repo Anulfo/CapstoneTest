@@ -51,6 +51,10 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           templateUrl: 'partials/stories-view.html',
           controller: 'StoriesViewCtrl'
         }).
+        when ('/main/build/editSnippet/:snippetId', {
+          templateUrl: 'partials/build-view.html',
+          controller: 'EditSnippetViewCtrl'
+        }).
         otherwise('/');
   });
 

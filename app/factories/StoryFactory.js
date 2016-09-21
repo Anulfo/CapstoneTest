@@ -116,14 +116,33 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
-    // let deleteSnippetsWithin = (storyId) => {
-    //   let snippetsArray = [];
-    //   return $q( (resolve, reject) => {
-    //     $http.get(`${FirebaseURL}/snippets.json?orderBy="storyId"&equalTo="${}"`)
-    //   })
+    let getSingleSnippet = (snippetId) => {
+      return $q( (resolve, reject) => {
+        $http.get(`${FirebaseURL}/snippets/${snippetId}.json`)
+        .success( (snippetFromFirebase) => {
+          resolve(snippetFromFirebase);
+          console.log(snippetFromFirebase);
+        }).
+        error((error) => {
+          reject(error);
+        });
+      });
+    };
 
-    // }
+    let updateSnippet = (snippetId, updatedSnippet) => {
+      return $q( (resolve, reject) => {
+        $http.patch(`${FirebaseURL}/snippets/${snippetId}.json`, JSON.stringify(updatedSnippet))
+        .success( (snippetFromFirebase) => {
+          resolve(snippetFromFirebase);
+        })
+        .error( (error) => {
+          reject(error);
+        });
+      });
+    };
 
-    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId};
+
+
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet};
 
 });

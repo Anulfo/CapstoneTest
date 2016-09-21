@@ -21,9 +21,13 @@ app.controller("StoriesViewCtrl", function($scope, StoryFactory, $window, $route
         });
       });
         StoryFactory.getSnippetsByStoryId(storyId)
-        .then ( (response) => {
-          console.log("Lonely Snippet", response)
-        })
+        .then ( (snippetsArray) => {
+          console.log("Wandering Snippets Array", snippetsArray);
+          angular.forEach(snippetsArray, function(value, key){
+              console.log(value.id);
+              StoryFactory.deleteSnippetById(value.id);
+            });
+          });
     };
 
     $scope.goToRearrangeSnippetsView = function (storyId) {
