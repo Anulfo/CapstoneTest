@@ -31,6 +31,7 @@ app.controller("StoriesViewCtrl", function($scope, StoryFactory, $window, $route
     };
 
     $scope.goToRearrangeSnippetsView = function (storyId) {
+      console.log(storyId);
         $window.location.href= `#/main/build/rearrangeAndEditSnippets/${storyId}`;
     };
 

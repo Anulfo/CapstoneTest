@@ -1,7 +1,8 @@
 "use strict";
 
-app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams) {
+app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams, $route) {
   console.log($routeParams);
+  console.log($route);
 
     $scope.title = "Create New Snippet";
 
@@ -16,7 +17,8 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
 
     $scope.addNewSnippet = function () {
         console.log($scope.newStorySnippet);
-        StoryFactory.postNewSnippet($scope.newStorySnippet);
+        StoryFactory.postNewSnippet($scope.newStorySnippet)
+        .then($route.reload());
     };
 
     $scope.goToRearrangeSnippetsView = function () {

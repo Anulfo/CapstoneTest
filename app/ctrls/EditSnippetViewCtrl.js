@@ -3,14 +3,13 @@
 app.controller("EditSnippetViewCtrl", function($scope, StoryFactory, $window, $routeParams) {
 
     $scope.title = "Edit Snippet";
-    let snippetId = $routeParams.snippetId;
 
     $scope.newStorySnippet = {};
 
-    StoryFactory.getSingleSnippet(snippetId)
-      .then( (snippetFromFirebase) => {
-        $scope.newStorySnippet = snippetFromFirebase;
-      });
+    // StoryFactory.getSingleSnippet(snippetId)
+    //   .then( (snippetFromFirebase) => {
+    //     $scope.newStorySnippet = snippetFromFirebase;
+    //   });
 
 console.log($scope.newStorySnippet.linkToStory);
 

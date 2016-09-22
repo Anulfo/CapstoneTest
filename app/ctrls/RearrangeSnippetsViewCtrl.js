@@ -1,11 +1,11 @@
 "use strict";
 
-app.controller("RearrangeSnippetsCtrl", function($scope, StoryFactory, $routeParams,$window){
+app.controller("RearrangeSnippetsCtrl", function($scope, StoryFactory, $routeParams,$window, $route){
   console.log($routeParams.storyId);
   let storyId = $routeParams.storyId;
-  $scope.snippets = [];
   let user = $scope.$parent.getUser();
-  console.log("User in Rearragange Snippets View", user);
+  $scope.snippets = [];
+  $scope.editMode = false;
 
   StoryFactory.getSnippetsByStoryId(storyId)
   .then((snippetsArray) => {
@@ -24,6 +24,10 @@ app.controller("RearrangeSnippetsCtrl", function($scope, StoryFactory, $routePar
   };
 
   $scope.updateSnippet = (snippetId) => {
+    console.log(snippetId);
+    $scope.editMode = true;
+    console.log($scope.editMode);
     $window.location.href = `#/main/build/editSnippet/${snippetId}`;
   };
+
 });

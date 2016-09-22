@@ -2,12 +2,16 @@
 
 <div class="row">
 
-  <div class="col-sm-6">
-    <div ng-include="partials/build-view.html"></div>
+  <div class="col-sm-6 partialHeight" ng-show="!editMode">
+    <div ng-include="'partials/build-view.html'" ng-controller="BuildViewCtrl" ></div>
   </div>
 
-  <div class="col-sm-6">
-    <div ng-include="partials/rearrange-snippets-view.html"></div>
+  <div class="col-sm-6 partialHeight" ng-show="editMode">
+    <div ng-include="'partials/build-view.html'" ng-controller="EditSnippetViewCtrl"></div>
+  </div>
+
+  <div class="col-sm-6 partialHeight">
+    <div ng-include="'partials/rearrange-snippets-view.html'"></div>
   </div>
 
 </div>
