@@ -1,4 +1,4 @@
-<h1>Story Collection</h1>
+<h1>Stories Collection</h1>
 
 <div ng-repeat="story in stories">
 
@@ -6,9 +6,8 @@
     <div class="panel-body">
       <div class="col-xs-6">
         <p>{{story.storyName}}<p>
-        <p>{{story.id}}</p>
         <button type="button" class="btn btn-primary" ng-click="deleteStory(story.id)">Delete</button>
-        <button type="button" class="btn btn-primary" ng-click="goToRearrangeSnippetsView(story.id)">Rearrange View</button>
+        <button type="button" class="btn btn-primary" ng-click="goToRearrangeSnippetsView(story.id)">Story Locations</button>
       </div>
     </div>
 </div>

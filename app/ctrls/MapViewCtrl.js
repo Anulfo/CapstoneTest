@@ -1,8 +1,17 @@
 "use strict";
 
-app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi) {
+app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi, StoryFactory, $routeParams) {
 
+$scope.storyId = $routeParams.storyId;
+console.log($scope.storyId);
 $scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 12};
+$scope.snippets = [];
+
+StoryFactory.getSnippetsByStoryId($scope.storyId)
+  .then( (snippetsArray) => {
+    $scope.snippets = snippetsArray;
+    console.log("Snippets Array", $scope.snippets);
+    });
 
 $scope.marker = {
     id: "first",

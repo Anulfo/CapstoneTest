@@ -1,11 +1,46 @@
 <h1>Map View Partial</h1>
+<div class="row">
+  <div class="col-sm-4">
+      <ui-gmap-google-map class="angular-google-map-container" center='map.center' zoom='map.zoom'>
 
-<ui-gmap-google-map class="angular-google-map-container" center='map.center' zoom='map.zoom'>
+      <ui-gmap-polyline ng-repeat="p in polylines" path ="p.path" stroke="p.stroke" visible="p.visible" geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
 
-<ui-gmap-polyline ng-repeat="p in polylines" path ="p.path" stroke="p.stroke" visible="p.visible" geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
+      <ui-gmap-marker coords= "map.center" idkey= "marker.id"></ui-gmap-marker>
 
-<ui-gmap-marker coords= "map.center" idkey= "marker.id"></ui-gmap-marker>
+      </ui-gmap-google-map>
 
-</ui-gmap-google-map>
+      <button type="" ng-click="goToCaracas()">Let's go Home Pal</button>
+  </div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-6">
+      <img src="http://www.visitmusiccity.com/Content/cms/uploads/skyline15_500.jpg" alt="cityPicture" width="400px" height="400px">
+  </div>
+  </div>
 
-<button type="" ng-click="goToCaracas()">Let's go Home Pal</button>
+<div class="row">
+
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at fermentum nunc. Nullam quis libero consequat, vehicula lacus id, aliquet augue. Donec massa nulla, luctus id fringilla sed, condimentum id orci. Sed facilisis scelerisque bibendum. Nulla feugiat tempus eros a consectetur.</p>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+</div>
