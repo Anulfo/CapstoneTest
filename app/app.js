@@ -31,7 +31,7 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
           templateUrl: 'partials/mainView.html',
           controller: 'MainViewCtrl'
         }).
-        when('/storyView', {
+        when('/storyView/:storyId', {
           templateUrl: 'partials/map-view.html',
           controller: 'MapViewCtrl'
         }).

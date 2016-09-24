@@ -11,7 +11,7 @@ app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $windo
       imgLink: "",
       linkToStory: $routeParams.storyId,
       uid: $scope.$parent.getUser(),
-      id:""
+      position:""
     };
 
     $scope.addNewSnippet = function () {
