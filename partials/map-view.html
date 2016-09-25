@@ -11,19 +11,28 @@
 
       <button type="" ng-click="goToCaracas()">Let's go Home Pal</button>
   </div>
+
   <div class="col-sm-2"></div>
+
   <div class="col-sm-6">
-      <img src="http://www.visitmusiccity.com/Content/cms/uploads/skyline15_500.jpg" alt="cityPicture" width="400px" height="400px">
+      <div ng-repeat="snippet in snippets">
+        <div ng-if="snippet_index == $index">
+          <img ng-src={{snippet.imgLink}} alt="cityPicture" width="400px" height="400px">
+      </div>
   </div>
-  </div>
+</div>
 
 <div class="row">
 
     <div class="col-sm-4"></div>
     <div class="col-sm-2"></div>
+
     <div class="col-sm-6">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at fermentum nunc. Nullam quis libero consequat, vehicula lacus id, aliquet augue. Donec massa nulla, luctus id fringilla sed, condimentum id orci. Sed facilisis scelerisque bibendum. Nulla feugiat tempus eros a consectetur.</p>
-    </div>
+      <div ng-repeat="snippet in snippets">
+        <div ng-if="snippet_index == $index">
+          <p>{{snippet.description}}</p>
+        </div>
+      </div>
 </div>
 
 <div class="row">
@@ -38,8 +47,8 @@
       </div>
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+        <button type="button" class="btn btn-default btn-lg" ng-click="">
+          <span class="glyphicon glyphicon-forward" aria-hidden="true" ng-click="next()"></span>
         </button>
       </div>
     </div>

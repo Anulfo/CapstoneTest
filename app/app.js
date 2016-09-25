@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("MapApp", ["ngRoute", "uiGmapgoogle-maps"]).constant("FirebaseURL", "https://capstone-tester.firebaseio.com");
+var app = angular.module("MapApp", ["ngRoute", "uiGmapgoogle-maps", "slick"]).constant("FirebaseURL", "https://capstone-tester.firebaseio.com");
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if (AuthFactory.isAuthenticated()) {

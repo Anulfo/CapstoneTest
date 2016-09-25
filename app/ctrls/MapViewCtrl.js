@@ -6,12 +6,28 @@ $scope.storyId = $routeParams.storyId;
 console.log($scope.storyId);
 $scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 12};
 $scope.snippets = [];
+$scope.snippet_index = 0;
+$scope.snippet = {};
+
+$scope.next = () => {
+  console.log("forward arrow clicked")
+  if ($scope.snippet_index >= $scope.snippets.length -1) {
+    $scope.snippet_index = 0;
+  }
+  else {
+    $scope.snippet_index ++;
+  }
+}
 
 StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
     $scope.snippets = snippetsArray;
     console.log("Snippets Array", $scope.snippets);
     });
+
+  $scope.snippetsOnDemand = () => {
+    console.log("Snippets on Global Scope", $scope.snippets);
+  };
 
 $scope.marker = {
     id: "first",
