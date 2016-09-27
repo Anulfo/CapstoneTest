@@ -8,6 +8,8 @@ $scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 12};
 $scope.snippets = [];
 $scope.snippet_index = 0;
 $scope.snippet = {};
+$scope.cities = [];
+$scope.latLngArray = []
 
 $scope.next = () => {
   if ($scope.snippet_index >= $scope.snippets.length -1) {
@@ -22,11 +24,29 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
     $scope.snippets = snippetsArray;
     console.log("Snippets Array", $scope.snippets);
+    })
+  .then( (snippets) => {
+     angular.forEach($scope.snippets, function(value, key) {
+      console.log(value.city);
+      $scope.cities.push(value.city);
+      });
+      angular.forEach($scope.cities, function(value, key) {
+        StoryFactory.getLocationArray(value)
+        .then ( (value) => {
+        $scope.latLngArray.push(value.results[0].geometry.location)
+      });
     });
+      console.log($scope.latLngArray);
+  })
 
-  $scope.snippetsOnDemand = () => {
-    console.log("Snippets on Global Scope", $scope.snippets);
-  };
+
+  // $scope.snippetsLocation = () => {
+  //   angular.forEach($scope.snippets, function(value, key) {
+  //     console.log(value.city);
+  //     $scope.locations.push(value.city);
+  //   })
+  //     console.log($scope.locations);
+  // };
 
 $scope.marker = {
     id: "first",

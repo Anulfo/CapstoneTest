@@ -141,8 +141,20 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
+    let getLocationArray = (city) => {
+        return $q( (resolve, reject) => {
+        $http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyBExgICd780NYkq_fLvwD0RdnmUoX7VFdg`)
+        .success( (googleResponse) => {
+          resolve(googleResponse);
+          console.log(googleResponse.results[0].geometry.location);
+        }).
+        error((error) => {
+          reject(error);
+        });
+      });
+    };
 
 
-    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet};
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet, getLocationArray};
 
 });
