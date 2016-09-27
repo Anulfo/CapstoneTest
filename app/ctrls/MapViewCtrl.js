@@ -4,7 +4,7 @@ app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi, StoryFactory,
 
 $scope.storyId = $routeParams.storyId;
 console.log($scope.storyId);
-$scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 12};
+$scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 10};
 $scope.snippets = [];
 $scope.snippet_index = 0;
 $scope.snippet = {};
@@ -17,8 +17,13 @@ $scope.next = () => {
   }
   else {
     $scope.snippet_index ++;
+  };
+};
+
+$scope.goMap = () => {
+  $scope.map = { center: {latitude: $scope.latLngArray[$scope.snippet_index].lat , longitude: $scope.latLngArray[$scope.snippet_index].lng    },
+        zoom: 10}
   }
-}
 
 StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
@@ -27,7 +32,6 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
     })
   .then( (snippets) => {
      angular.forEach($scope.snippets, function(value, key) {
-      console.log(value.city);
       $scope.cities.push(value.city);
       });
       angular.forEach($scope.cities, function(value, key) {
@@ -51,8 +55,8 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
 $scope.marker = {
     id: "first",
   coords: {
-    latitude: 36.1627,
-    longitude: -86.7816
+    lat: 36.1627,
+    lng: -86.7816
   }
 };
 
@@ -100,7 +104,7 @@ $scope.goToCaracas = function () {
   console.log($scope.map.center);
   var storyPath = $scope.polylines[0].path ;
 $scope.map.center =
-{ latitude: 10.4805937, longitude:  -66.9036062999 };
+{ lat: 10.4805937, lng:  -66.9036062999 };
 
   };
 

@@ -146,7 +146,6 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
         $http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyBExgICd780NYkq_fLvwD0RdnmUoX7VFdg`)
         .success( (googleResponse) => {
           resolve(googleResponse);
-          console.log(googleResponse.results[0].geometry.location);
         }).
         error((error) => {
           reject(error);
