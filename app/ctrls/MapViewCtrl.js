@@ -4,7 +4,7 @@ app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi, StoryFactory,
 
 $scope.storyId = $routeParams.storyId;
 console.log($scope.storyId);
-$scope.map = { center: { latitude: 36.1627, longitude: -86.7816 }, zoom: 10};
+$scope.map = { center: {latitude: null , longitude: null }, zoom: 5};
 $scope.snippets = [];
 $scope.snippet_index = 0;
 $scope.snippet = {};
@@ -22,7 +22,7 @@ $scope.next = () => {
 
 $scope.goMap = () => {
   $scope.map = { center: {latitude: $scope.latLngArray[$scope.snippet_index].lat , longitude: $scope.latLngArray[$scope.snippet_index].lng    },
-        zoom: 10}
+        zoom: 5}
   }
 
 StoryFactory.getSnippetsByStoryId($scope.storyId)
@@ -38,9 +38,12 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
         StoryFactory.getLocationArray(value)
         .then ( (value) => {
         $scope.latLngArray.push(value.results[0].geometry.location)
-      });
-    });
+      }).then( () => {
       console.log($scope.latLngArray);
+      $scope.map.center.latitude = $scope.latLngArray[0].lat
+      $scope.map.center.longitude =  $scope.latLngArray[0].lng
+      })
+    })
   })
 
 
