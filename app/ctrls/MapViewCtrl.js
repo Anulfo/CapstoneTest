@@ -10,7 +10,6 @@ $scope.snippet_index = 0;
 $scope.snippet = {};
 
 $scope.next = () => {
-  console.log("forward arrow clicked")
   if ($scope.snippet_index >= $scope.snippets.length -1) {
     $scope.snippet_index = 0;
   }
@@ -39,42 +38,42 @@ $scope.marker = {
 
 console.log($scope.marker);
 
-$scope.polylines = [];
+// $scope.polylines = [];
 
-uiGmapGoogleMapApi .then(function(){
-  $scope.polylines  = [
-        {
-        id : 1,
-        path: [
-             {
-               latitude: 10.4805937,
-                longitude: -66.9036062999,
-                story: 1
-             },
-              {
-                latitude: 36.1626638,
-                longitude: -86.7816016,
-                story: 2
-             }
-          ],
-          stroke: {
-            color : "#6060FB",
-            weight : 3
-          },
-           editable: true,
-            draggable: true,
-            geodesic: true,
-            visible: true,
-              icons: [{
-                    icon: {
-                        path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
-                    },
-                    offset: '25px',
-                    repeat: '50px'
-                }]
-            },
-          ];
-    });
+// uiGmapGoogleMapApi .then(function(){
+//   $scope.polylines  = [
+//         {
+//         id : 1,
+//         path: [
+//              {
+//                latitude: 10.4805937,
+//                 longitude: -66.9036062999,
+//                 story: 1
+//              },
+//               {
+//                 latitude: 36.1626638,
+//                 longitude: -86.7816016,
+//                 story: 2
+//              }
+//           ],
+//           stroke: {
+//             color : "#6060FB",
+//             weight : 3
+//           },
+//            editable: true,
+//             draggable: true,
+//             geodesic: true,
+//             visible: true,
+//               icons: [{
+//                     icon: {
+//                         path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW
+//                     },
+//                     offset: '25px',
+//                     repeat: '50px'
+//                 }]
+//             },
+//           ];
+//     });
 
 $scope.goToCaracas = function () {
   console.log("Been clicked");
