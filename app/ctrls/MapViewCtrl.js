@@ -32,6 +32,7 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
     })
   .then( (snippets) => {
      angular.forEach($scope.snippets, function(value, key) {
+      console.log(value);
       $scope.cities.push(value.city);
       });
       angular.forEach($scope.cities, function(value, key) {
