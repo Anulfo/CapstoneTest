@@ -27,6 +27,9 @@ $scope.goMap = () => {
 
 StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
+      snippetsArray.sort(function(a, b) {
+      return a.position - b.position;
+      })
     $scope.snippets = snippetsArray;
     console.log("Snippets Array", $scope.snippets);
     })

@@ -1,18 +1,24 @@
 <h1>Rearrange Snippets View</h1>
 
-<div>
-
-  <div ng-repeat="snippet in snippets">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="col-xs-6">
+<div class="row" dnd-list="snippets">
+    <!-- <div class="panel panel-primary"> -->
+      <!-- <div class="panel-body"> -->
+        <div class="col-xs-12 panel panel-primary" ng-repeat="snippet in snippets"
+        dnd-draggable="snippet"
+        dnd-moved="snippets.splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = snippet"
+        ng-class= "{'selected': models.selected === item}"
+        dnd-inserted="logEvent('Element was inserted at position ' + index, event)"
+        dnd-drop="dropCallback(event, index, item, external, type, 'itemType'"
+        dnd-dragend="logEvent('Drag operation ended', event)">
           <p>{{snippet.city}}</p>
           <p>{{snippet.description}}</p>
+          <p>{{snippet.position}}</p>
           <button type="button" class="btn btn-primary" ng-click="deleteSnippet(snippet.id)">Delete</button>
           <button type="button" class="btn btn-primary" ng-click="updateSnippet(snippet.id)">Edit</button>
+        <!-- </div> -->
         </div>
-      </div>
-    </div>
   </div>
   <button type="button" class="btn btn-primary" ng-click="toBuildViewPage()">Add a New Snippet to Your story</button>
   <button type="button" class="btn btn-primary" ng-click="toStoryView(storyId)">View Your Story</button>
