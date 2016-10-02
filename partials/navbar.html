@@ -1,18 +1,7 @@
-<nav class="navbar navbar-default" ng-controller="NavBarCtrl">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      <span class="sr-only">Toggle Navigation</span>
-      <span class="icon-bar">hola</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#/main">Tell Me Your Story</a>
+<div class="container"  ng-controller="NavBarCtrl">
+  <div class="navbar nav-default" style="background-color: #01ABAA">
+        <a class="navbar-brand" href="#/main" ng-show="$parent.isLoggedIn">Tell Me Your Story</a>
+        <a class="navbar-brand navbar-right" class="btn btn-warning btn-outline navbar-btn"  ng-click="logout()" href="#/login" ng-show="$parent.isLoggedIn">Logout</a>
   </div>
-  <div class="navbar-header navbar-right">
-    <button type="button" class="btn btn-default navbar-btn"  ng-click="logout()" ng-show="$parent.isLoggedIn">Logout</button>
-  </div>
-
-
-  </div>
-</nav>
+  </nav>
+</div>
