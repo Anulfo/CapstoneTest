@@ -14,9 +14,9 @@
 
 <body class="container" ng-app="MapApp">
 
-<div class="row" ng-controller="TopCtrl">
+<div  ng-controller="TopCtrl">
 <!-- Here is where TopCtrl.js become parent to NavBarCtrl.js -->
-    <div class="col-xs-12" ng-include="'partials/navbar.html'"></div>
+    <div class="row col-xs-12" ng-include="'partials/navbar.html'"></div>
     <div class="col-xs-12" ng-view></div>
 
 </div>

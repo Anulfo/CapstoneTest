@@ -29,31 +29,31 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
         }).
         when('/main', {
           templateUrl: 'partials/mainView.html',
-          controller: 'MainViewCtrl'
+          controller: 'MainViewCtrl',
         }).
         when('/storyView/:storyId', {
           templateUrl: 'partials/map-view.html',
-          controller: 'MapViewCtrl'
+          controller: 'MapViewCtrl',
         }).
         when('/main/build/rearrangeAndEditSnippets/:storyId', {
           templateUrl: 'partials/rearrange-snippets-view.html',
-          controller: 'RearrangeSnippetsCtrl'
+          controller: 'RearrangeSnippetsCtrl',
         }).
         when('/main/build/name', {
           templateUrl: 'partials/story-name-view.html',
-          controller: 'StoryNameViewCtrl'
+          controller: 'StoryNameViewCtrl',
         }).
         when('/main/build/newSnippet/:storyId', {
           templateUrl: 'partials/build-view.html',
-          controller: 'BuildViewCtrl'
+          controller: 'BuildViewCtrl',
         }).
         when ('/main/storyGallery', {
           templateUrl: 'partials/stories-view.html',
-          controller: 'StoriesViewCtrl'
+          controller: 'StoriesViewCtrl',
         }).
         when ('/main/build/editSnippet/:snippetId', {
           templateUrl: 'partials/build-view.html',
-          controller: 'EditSnippetViewCtrl'
+          controller: 'EditSnippetViewCtrl',
         }).
         otherwise('/');
   });

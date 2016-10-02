@@ -1,13 +1,29 @@
-<h1>Stories Collection</h1>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 collectionHeader">
+      <h1>Choose a Story</h1>
+  </div>
+  <div class="col-sm-1"></div>
+<!--   <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div> -->
+</div>
 
-<div ng-repeat="story in stories">
+<div class="row storyList">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-6">
+    <div ng-repeat="story in stories" class="card">
+          <div class="col-xs-12 card-block">
+            <h3 class="storyHeader card-title">{{story.storyName}}</h3>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-xs-6">
-        <p>{{story.storyName}}<p>
-        <button type="button" class="btn btn-primary" ng-click="deleteStory(story.id)">Delete</button>
-        <button type="button" class="btn btn-primary" ng-click="goToRearrangeSnippetsView(story.id)">Story Locations</button>
-      </div>
+            <button type="button" class="btn btn-warning btn-secondary  btn-outline  btn-lg" ng-click="deleteStory(story.id)">Delete</button>
+            <button type="button" class="btn btn-warning  btn-outline  btn-lg" ng-click="goToRearrangeSnippetsView(story.id)">Story Fragments</button>
+              <br>
+          <br>
+          <br>
+          <br>
+          </div>
     </div>
+
+  </div>
+  <div class="col-sm-4"></div>
 </div>

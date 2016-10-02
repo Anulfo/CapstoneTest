@@ -1,4 +1,4 @@
-<div class="container"  ng-controller="NavBarCtrl">
+<div  ng-controller="NavBarCtrl" ng-show="$parent.isLoggedIn">
   <div class="navbar nav-default" style="background-color: #01ABAA">
         <a class="navbar-brand" href="#/main" ng-show="$parent.isLoggedIn">Tell Me Your Story</a>
         <a class="navbar-brand navbar-right" class="btn btn-warning btn-outline navbar-btn"  ng-click="logout()" href="#/login" ng-show="$parent.isLoggedIn">Logout</a>
