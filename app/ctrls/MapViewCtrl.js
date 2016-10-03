@@ -4,6 +4,7 @@ app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi, StoryFactory,
 
 $scope.storyId = $routeParams.storyId;
 console.log($scope.storyId);
+$scope.story = {}
 $scope.map = { center: {latitude: null , longitude: null }, zoom: 5};
 $scope.snippets = [];
 $scope.snippet_index = 0;
@@ -20,41 +21,55 @@ $scope.next = () => {
   };
 };
 
+$scope.back = () => {
+  if ($scope.snippet_index <= 0) {
+    $scope.snippet_index = $scope.snippets.length -1;
+  }
+  else {
+    $scope.snippet_index --;
+  };
+};
+
+  StoryFactory.getStoryNameById($scope.storyId)
+  .then( (storyObj) => {
+    $scope.story = storyObj;
+    return $scope.story;
+  });
+
+
+
 $scope.goMap = () => {
-  $scope.map = { center: {latitude: $scope.latLngArray[$scope.snippet_index].lat , longitude: $scope.latLngArray[$scope.snippet_index].lng    },
+  console.log($scope.latLngArray);
+  $scope.map = { center: {latitude: $scope.latLngArray[$scope.snippet_index].lat , longitude: $scope.latLngArray[$scope.snippet_index].lng},
         zoom: 5}
   }
 
+
 StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
+    snippetsArray.sort(function(a, b) {
+      return a.position - b.position;
+      })
     $scope.snippets = snippetsArray;
     console.log("Snippets Array", $scope.snippets);
     })
-  .then( (snippets) => {
+  .then( () => {
      angular.forEach($scope.snippets, function(value, key) {
       console.log(value);
       $scope.cities.push(value.city);
       });
+     console.log($scope.cities);
       angular.forEach($scope.cities, function(value, key) {
         StoryFactory.getLocationArray(value)
         .then ( (value) => {
         $scope.latLngArray.push(value.results[0].geometry.location)
       }).then( () => {
-      console.log($scope.latLngArray);
       $scope.map.center.latitude = $scope.latLngArray[0].lat
       $scope.map.center.longitude =  $scope.latLngArray[0].lng
       })
     })
   })
 
-
-  // $scope.snippetsLocation = () => {
-  //   angular.forEach($scope.snippets, function(value, key) {
-  //     console.log(value.city);
-  //     $scope.locations.push(value.city);
-  //   })
-  //     console.log($scope.locations);
-  // };
 
 $scope.marker = {
     id: "first",
@@ -64,7 +79,8 @@ $scope.marker = {
   }
 };
 
-console.log($scope.marker);
+
+// console.log($scope.marker);
 
 // $scope.polylines = [];
 
@@ -102,14 +118,5 @@ console.log($scope.marker);
 //             },
 //           ];
 //     });
-
-$scope.goToCaracas = function () {
-  console.log("Been clicked");
-  console.log($scope.map.center);
-  var storyPath = $scope.polylines[0].path ;
-$scope.map.center =
-{ lat: 10.4805937, lng:  -66.9036062999 };
-
-  };
 
 });

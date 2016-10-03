@@ -103,6 +103,7 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
           if (snippet !== null) {
             Object.keys(snippet).forEach((key) => {
               snippet[key].id = key;
+              console.log(snippet[key].position);
               snippets.push(snippet[key]);
             });
             resolve(snippets);
@@ -115,6 +116,20 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
         });
       });
     };
+
+    let getStoryNameById = (storyId) => {
+      return $q( (resolve, reject) => {
+        $http.get(`${FirebaseURL}/stories/${storyId}.json`)
+        .success( (storyObj) => {
+          resolve(storyObj);
+        }).
+        error((error) => {
+          reject(error);
+        });
+      });
+
+    };
+
 
     let getSingleSnippet = (snippetId) => {
       return $q( (resolve, reject) => {
@@ -141,6 +156,19 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
+        let snippetPositionSet = (itemId, editedItem) => {
+        console.log(itemId, editedItem)
+        return $q( (resolve, reject) => {
+            $http.patch(`${FirebaseURL}/snippets/${itemId}.json`, editedItem)
+                .success((objFromFirebase) => {
+                    resolve(objFromFirebase);
+                })
+                .error((error) => {
+                    reject(error);
+                });
+        });
+    };
+
     let getLocationArray = (city) => {
         return $q( (resolve, reject) => {
         $http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyBExgICd780NYkq_fLvwD0RdnmUoX7VFdg`)
@@ -154,6 +182,6 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
     };
 
 
-    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet, getLocationArray};
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet, getLocationArray, snippetPositionSet, getStoryNameById};
 
 });

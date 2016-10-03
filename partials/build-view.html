@@ -1,5 +1,9 @@
 <div  class="row">
-      <h1> {{title}}</h1>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 storyNameTitle">
+      {{title}}
+  </div>
+  <div class="col-sm-4"></div>
 </div>
 <div class="row">
     <div class="col-sm-6">
@@ -8,17 +12,19 @@
       <h2>ImageUrl</h2>
       <input type="text" name="storyName" placeholder="" ng-model=" newStorySnippet.imgLink">
       <h2>Description</h2>
-      <input type="text" name="storyName" placeholder="" ng-model="newStorySnippet.description">
+      <input type="text" name="storyName" placeholder="Memories of that Place" ng-model="newStorySnippet.description">
+    </div>
+    <div class="col-sm-6">
+      <div class="row spacer"></div>
+      <button type="button" class="btn btn-outline btn-warning btn-lg" ng-click="goToRearrangeSnippetsView()">Rearrange your Story Snippets</button>
+    </div>
 </div>
-<br>
 <div class="row">
   <div class="col-sm-6">
-    <button type="button" class="btn btn-outline-success" ng-click="addNewSnippet()">Submit</button>
+    <button type="button" class="btn btn-outline btn-warning btn-lg" ng-click="addNewSnippet()">Submit</button>
   </div>
 </div>
 <br>
 <div class="row">
-  <div class="col-sm-6">
-    <button type="button" class="btn btn-outline-success" ng-click="goToRearrangeSnippetsView()">Rearrange your Story Snippets</button>
-  </div>
+    <div class="col-sm-6"></div>
 </div>

@@ -1,17 +1,41 @@
-<section class="auth-form">
-  <h1>Login or Register</h1>
-  <div>
-    Email: <input type="email" autofocus="true" ng-model="account.email">
+<div class="auth-form login-view">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 jumbotron">
+      Tell Me Your Story
+    </div>
+    <div class="col-sm-4"></div>
   </div>
-  <div>
-    Password: <input type="password" ng-model="account.password">
+  <div class="row">
+    <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="col-sm-6">
+          <button class="btn btn-warning  btn-outline btn-block btn-lg" ng-click="login()">
+        Login</button>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-warning btn-outline btn-block btn-lg" ng-click="register()">
+          Register</button>
+        </div>
+      </div>
+    <div class="col-sm-4"></div>
   </div>
-  <div>
-    <button class="btn btn-info" ng-click="login()">
-    Login</button>
-    <button class="btn btn-info" ng-click="register()">
-    Register</button>
+  <br>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 input-group margin-bottom-sm text-center">
+        <input type="email" autofocus="true" ng-model="account.email" placeholder="e.g asdfsd@gmail.com">
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4 input-group margin-bottom-sm text-center">
+        <input  type="password" ng-model="account.password" placeholder="password">
+      </div>
+    <div class="col-sm-4"></div>
   </div>
 
 
-</section>
+
+</div>
