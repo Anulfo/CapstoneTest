@@ -117,6 +117,20 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
       });
     };
 
+    let getStoryNameById = (storyId) => {
+      return $q( (resolve, reject) => {
+        $http.get(`${FirebaseURL}/stories/${storyId}.json`)
+        .success( (storyObj) => {
+          resolve(storyObj);
+        }).
+        error((error) => {
+          reject(error);
+        });
+      });
+
+    };
+
+
     let getSingleSnippet = (snippetId) => {
       return $q( (resolve, reject) => {
         $http.get(`${FirebaseURL}/snippets/${snippetId}.json`)
@@ -168,6 +182,6 @@ app.factory("StoryFactory", ($q, $http, FirebaseURL) => {
     };
 
 
-    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet, getLocationArray, snippetPositionSet};
+    return {postNewSnippet, getStorySnippetsByUid, postNewStoryName, deleteSnippetById, getStoriesByUid, deleteStoryById, getSnippetsByStoryId, getSingleSnippet, updateSnippet, getLocationArray, snippetPositionSet, getStoryNameById};
 
 });

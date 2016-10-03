@@ -1,4 +1,10 @@
-<h1>Map View Partial</h1>
+<div class="row map-view">
+  <div class="col-sm-3"></div>
+    <div class="col-sm-6 storySign text-center">
+      <h1>{{story.storyName}}</h1>
+    </div>
+  <div class="col-sm-3"></div>
+</div>
 <div class="row">
   <div class="col-sm-4">
       <ui-gmap-google-map class="angular-google-map-container" center='map.center' zoom='map.zoom'>
@@ -9,47 +15,47 @@
 
       </ui-gmap-google-map>
 
-      <button type="" ng-click="goToCaracas()">Let's go Home Pal</button>
   </div>
 
   <div class="col-sm-2"></div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-6 mapStyle">
       <div ng-repeat="snippet in snippets">
         <div ng-if="snippet_index == $index">
-          <img ng-src={{snippet.imgLink}} alt="cityPicture" width="400px" height="400px">
+          <img ng-src={{snippet.imgLink}} alt="cityPicture" width="500px" height="400px">
       </div>
   </div>
 </div>
+</div>
 
-<div class="row">
-
-    <div class="col-sm-4"></div>
-    <div class="col-sm-2"></div>
-
-    <div class="col-sm-6">
+<div class="row descriptSpace">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 ">
       <div ng-repeat="snippet in snippets">
         <div ng-if="snippet_index == $index">
           <p>{{snippet.description}}</p>
         </div>
       </div>
+    </div>
+    <div class="col-sm-3"></div>
+  <div class="row"></div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-backward" aria-hidden="true" ng-click="back(); goMap()"></span>
+          </button>
+        </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-default btn-lg" ng-click="">
+        <span class="glyphicon glyphicon-forward" aria-hidden="true" ng-click="next(); goMap()"></span>
+        </button>
+      </div>
 </div>
 
-<div class="row">
 
     <div class="col-sm-4"></div>
     <div class="col-sm-2"></div>
     <div class="col-sm-6">
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-backward" aria-hidden="true" ng-click="back(); goMap()"></span>
-        </button>
-      </div>
-      <div class="col-sm-4"></div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-default btn-lg" ng-click="">
-          <span class="glyphicon glyphicon-forward" aria-hidden="true" ng-click="next(); goMap()"></span>
-        </button>
-      </div>
+
     </div>
 </div>

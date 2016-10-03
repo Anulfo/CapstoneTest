@@ -4,6 +4,7 @@ app.controller("MapViewCtrl", function($scope, uiGmapGoogleMapApi, StoryFactory,
 
 $scope.storyId = $routeParams.storyId;
 console.log($scope.storyId);
+$scope.story = {}
 $scope.map = { center: {latitude: null , longitude: null }, zoom: 5};
 $scope.snippets = [];
 $scope.snippet_index = 0;
@@ -29,11 +30,20 @@ $scope.back = () => {
   };
 };
 
+  StoryFactory.getStoryNameById($scope.storyId)
+  .then( (storyObj) => {
+    $scope.story = storyObj;
+    return $scope.story;
+  });
+
+
+
 $scope.goMap = () => {
   console.log($scope.latLngArray);
   $scope.map = { center: {latitude: $scope.latLngArray[$scope.snippet_index].lat , longitude: $scope.latLngArray[$scope.snippet_index].lng},
         zoom: 5}
   }
+
 
 StoryFactory.getSnippetsByStoryId($scope.storyId)
   .then( (snippetsArray) => {
@@ -61,14 +71,6 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
   })
 
 
-  // $scope.snippetsLocation = () => {
-  //   angular.forEach($scope.snippets, function(value, key) {
-  //     console.log(value.city);
-  //     $scope.locations.push(value.city);
-  //   })
-  //     console.log($scope.locations);
-  // };
-
 $scope.marker = {
     id: "first",
   coords: {
@@ -76,6 +78,7 @@ $scope.marker = {
     lng: -86.7816
   }
 };
+
 
 // console.log($scope.marker);
 
@@ -115,14 +118,5 @@ $scope.marker = {
 //             },
 //           ];
 //     });
-
-$scope.goToCaracas = function () {
-  console.log("Been clicked");
-  console.log($scope.map.center);
-  var storyPath = $scope.polylines[0].path ;
-$scope.map.center =
-{ lat: 10.4805937, lng:  -66.9036062999 };
-
-  };
 
 });

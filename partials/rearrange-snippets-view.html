@@ -1,9 +1,15 @@
-<h1>Rearrange Snippets View</h1>
+ <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4 collectionHeader">
+      <h1>Arrange your story fragments</h1>
+  </div>
+  <div class="col-sm-7"></div>
+</div>
 
-<div class="row" dnd-list="snippets">
+<div class="row storyList" dnd-list="snippets">
     <!-- <div class="panel panel-primary"> -->
       <!-- <div class="panel-body"> -->
-        <div class="col-xs-12 panel panel-primary" ng-repeat="snippet in snippets"
+        <div class="col-xs-4 card" ng-repeat="snippet in snippets"
         dnd-draggable="snippet"
         dnd-moved="snippets.splice($index, 1)"
         dnd-effect-allowed="move"
@@ -12,14 +18,30 @@
         dnd-inserted="logEvent('Element was inserted at position ' + index, event)"
         dnd-drop="dropCallback(event, index, item, external, type, 'itemType'"
         dnd-dragend="logEvent('Drag operation ended', event)">
-          <p>{{snippet.city}}</p>
-          <p>{{snippet.description}}</p>
-          <p>{{snippet.position}}</p>
-          <button type="button" class="btn btn-primary" ng-click="deleteSnippet(snippet.id)">Delete</button>
-          <button type="button" class="btn btn-primary" ng-click="updateSnippet(snippet.id)">Edit</button>
+          <div class="card-block storyHeader text-center">
+            <div class="card-title">
+              <p>{{snippet.position}}</p>
+            </div>
+            <div class="card-title">
+              <p>{{snippet.city}}</p>
+            </div>
+            <div class="card-title">
+              <p>{{snippet.description}}</p>
+            </div>
+          <button type="button" class="btn btn-warning btn-outline  btn-lg" ng-click="deleteSnippet(snippet.id)">Delete</button>
+          <button type="button" class="btn btn-warning btn-secondary  btn-outline  btn-lg" ng-click="updateSnippet(snippet.id)">Edit</button>
+          </div>
+          <br><br><br>
         <!-- </div> -->
-        </div>
-  </div>
-  <button type="button" class="btn btn-primary" ng-click="toBuildViewPage()">Add a New Snippet to Your story</button>
-  <button type="button" class="btn btn-primary" ng-click="toStoryView(storyId)">View Your Story</button>
+      </div>
 </div>
+<div class="row">
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-danger btn-lg" ng-click="toBuildViewPage()">Add a New Snippet to Your story</button>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 text-center">
+    <button type="button" class="btn btn-danger btn-lg" ng-click="toStoryView(storyId)">View Your Story</button>
+  </div>
+</div>
+
