@@ -27,7 +27,7 @@
 
 <div class="row descriptSpace">
     <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 text-center">
       <div ng-repeat="snippet in snippets">
         <div ng-if="snippet_index == $index">
           <p>{{snippet.description}}</p>
@@ -35,17 +35,25 @@
       </div>
       </div>
     <div class="col-sm-3"></div>
+
   <div class="row spacer"></div>
+
+  <div class="row">
+
       <div class="col-sm-4"></div>
-        <div class="col-sm-4 text-center">
+      <div class="col-sm-1 text-center">
           <button type="button" class="btn-lg">
             <span class="glyphicon glyphicon-backward" aria-hidden="true" ng-click="back(); goMap()"></span>
           </button>
-          <button type="button" class="btn-lg" ng-click="">
-        <span class="glyphicon glyphicon-forward" aria-hidden="true" ng-click="next(); goMap()"></span>
-        </button>
-        </div>
-      <div class="col-sm-4">
       </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-1">
+          <button type="button" class="btn-lg" ng-click="">
+          <span class="glyphicon glyphicon-forward" aria-hidden="true" ng-click="next(); goMap()"></span>
+          </button>
+      </div>
+      <div class="col-sm-4"></div>
+
+  </div>
 </div>
 
