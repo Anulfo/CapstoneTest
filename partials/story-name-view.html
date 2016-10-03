@@ -1,9 +1,24 @@
-<h1>Your Story Name Here</h1>
 
 <div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 storyNameTitle">
+    Write the name of your Story
+  </div>
+  <div class="col-sm-4"></div>
+</div>
 
-<input type="text" name="" placeholder="Your Story Name" ng-model="newStoryName.storyName">
+<div class="row" style="margin-top: 2em">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 text-center">
+    <input type="text" name="" placeholder="The name goes here" ng-model="newStoryName.storyName">
+  </div>
+  <div class="col-sm-4"></div>
+</div>
 
-<button type="button" class="btn btn-outline-success" ng-click="addNewStory()">Submit</button>
-
+<div class="row text-center" style="margin-top: 2em">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-warning btn-lg btn-outline" ng-click="addNewStory()">Submit</button>
+  </div>
+  <div class="col-sm-4"></div>
 </div>

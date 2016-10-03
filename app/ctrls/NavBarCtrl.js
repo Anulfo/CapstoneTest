@@ -8,7 +8,7 @@ app.controller("NavBarCtrl", function($scope, $location) {
       {url: "#/main", name: "Tell Me Your Story", showState: "$parent.isLoggedIn"}
   ];
 
-  // $scope.isActive = (viewLocation) =>
-  // viewLocation === $location.path();
+  $scope.isActive = (viewLocation) =>
+  viewLocation === $location.path();
 
 });
