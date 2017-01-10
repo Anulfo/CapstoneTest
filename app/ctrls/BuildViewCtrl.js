@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 app.controller("BuildViewCtrl", function($scope, StoryFactory, $location, $window, $routeParams, $route) {
   console.log($routeParams);
