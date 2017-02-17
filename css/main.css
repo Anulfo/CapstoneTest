@@ -1,0 +1,149 @@
+.angular-google-map-container {
+  height: 400px;
+  width:500px;
+}
+
+.jumbotron {
+  font-size: 5em;
+  font-family: Cartoon;
+  color: white;
+  background-color: #07889B;
+  text-align: center;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-danger {
+  background-color: #B56357;
+}
+
+.btn-warning.btn-outline {
+    color:  #FEA680;
+}
+
+.container {
+  background-color: #07889B;
+}
+
+.login-view {
+  margin-top: 6em;
+}
+
+.main-view {
+  margin-top: 6em;
+}
+
+.navbar-brand {
+  color: #FEA680;
+}
+
+.navbar-brand {
+  color: white;
+}
+.navbar-right {
+  margin-right: 1em;
+}
+
+.form-control {
+  font-size: 2em;
+  background-color: #E37222;
+}
+
+.collectionHeader {
+  color: #07889B;
+  background-color: #EEAA7B;
+  margin-top: 2em;
+}
+
+.panel-primary {
+  background-color: #E37222;
+  border: #E37222;
+  border-radius: 15%
+}
+
+.storyList {
+  margin-top: 3em;
+}
+
+.storyHeader {
+  color: #07889B;
+  background-color: #F4F4F4;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+.storyHeaderStoryView{
+  color: #07889B;
+  background-color: #F4F4F4;
+  border-radius: 5px;
+  height: 50px;
+}
+
+h3 : hover {
+    background-color: black;
+}
+
+p {
+  font-size: 2em;
+  color: #DF744A;
+}
+
+.storySign {
+  font-size: 5em;
+  font-family: Cartoon;
+  color: white ;
+  margin-bottom: 1em;
+}
+
+.mapStyle {
+  border: 20px solid #DF744A;
+  border-bottom: none;
+  margin: 0;
+  background-color:#DF744A;
+}
+
+.descriptSpace {
+  height: 200px;
+  background-color: #F4F4F4;
+  box-shadow: 10px 10px 5px black;
+  padding-top: 1em;
+}
+
+.storyNameTitle {
+  font-family: Cartoon;
+  font-size: 5em;
+  color: #F4F4F4;
+  /*background-color: white;*/
+/*  height: 400px;
+  width: 400px;*/
+  border-radius: 15px;
+}
+
+@font-face {
+font-family: 'Cartoon';
+src: url('FromCartoonBlocks.ttf')  format('truetype');
+font-weight: bold;
+}
+
+input {
+  font-size: 2em;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+h2 {
+  font-family: arial;
+  font-size: 2em;
+  color: #EEAA7B;
+
+}
+
+.spacer {
+  height: 100px;
+}
