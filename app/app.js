@@ -14,6 +14,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 
 app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
     uiGmapGoogleMapApiProvider.configure({
+          key: 'AIzaSyB4lVZVkAlkiapJWrY3krBZo4J-ZkJDZgQ',
           libraries: 'geometry,visualization'
       });
 
