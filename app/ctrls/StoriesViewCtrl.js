@@ -34,4 +34,9 @@ app.controller("StoriesViewCtrl", function($scope, StoryFactory, $window, $route
         $window.location.href= `#/main/build/rearrangeAndEditSnippets/${storyId}`;
     };
 
+    $scope.goToBuildingForm =  () =>  {
+      console.log("Been Clicked");
+      $window.location.href="#/main/build/name";
+  };
+
 });

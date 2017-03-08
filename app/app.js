@@ -13,7 +13,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   });
 
 app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
-    uiGmapGoogleMapApiProvider.configure({
+      uiGmapGoogleMapApiProvider.configure({
           key: 'AIzaSyB4lVZVkAlkiapJWrY3krBZo4J-ZkJDZgQ',
           libraries: 'geometry,visualization'
       });
@@ -27,6 +27,10 @@ app.config(function($routeProvider, uiGmapGoogleMapApiProvider){
         when('/login', {
           templateUrl: 'partials/login-view.html',
           controller: 'LoginViewCtrl'
+        }).
+        when('/main/registerView', {
+          templateUrl: 'partials/register-view.html',
+          controller: 'RegisterViewCtrl'
         }).
         when('/main', {
           templateUrl: 'partials/mainView.html',

@@ -23,7 +23,7 @@ $scope.next = () => {
 
 $scope.back = () => {
   if ($scope.snippet_index <= 0) {
-    $scope.snippet_index = $scope.snippets.length -1;
+      $scope.snippet_index = $scope.snippets.length -1;
   }
   else {
     $scope.snippet_index --;
@@ -73,7 +73,7 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
 
 $scope.marker = {
     id: "first",
-  coords: {
+    coords: {
     lat: 36.1627,
     lng: -86.7816
   }
