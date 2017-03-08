@@ -74,8 +74,8 @@ StoryFactory.getSnippetsByStoryId($scope.storyId)
 $scope.marker = {
     id: "first",
     coords: {
-    lat: 36.1627,
-    lng: -86.7816
+    lat: null,
+    lng: null
   }
 };
 
